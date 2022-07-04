@@ -36,14 +36,19 @@ class GlobalHelper {
     return int.parse(double.parse(text).toStringAsFixed(0));
   }
 
-  static String getInitials(name) {
+  static String getInitials(String name) {
     List<String> names = name.split(" ");
+    if (names.length == 1) {
+      return names[0][0];
+    }
+
     String initials = "";
     int numWords = 2;
 
     if (numWords < names.length) {
       numWords = names.length;
     }
+
     for (var i = 0; i < numWords; i++) {
       initials += '${names[i][0]}';
     }

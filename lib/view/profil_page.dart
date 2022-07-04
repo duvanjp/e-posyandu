@@ -1,10 +1,12 @@
 import 'package:e_posyandu/app_color.dart';
+import 'package:e_posyandu/bloc/user/user_cubit.dart';
 import 'package:e_posyandu/helper/global_helper.dart';
 import 'package:e_posyandu/view/login_page.dart';
 import 'package:e_posyandu/widget/add_input.dart';
 import 'package:e_posyandu/widget/app_alert_dialog.dart';
 import 'package:e_posyandu/widget/base_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfilPage extends StatefulWidget {
   ProfilPage({Key? key}) : super(key: key);
@@ -16,14 +18,25 @@ class ProfilPage extends StatefulWidget {
 class _ProfilPageState extends State<ProfilPage> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
-  TextEditingController storeName = TextEditingController();
-  TextEditingController storeAddress = TextEditingController();
-  TextEditingController personalName = TextEditingController();
-  TextEditingController personalEmail = TextEditingController();
-  TextEditingController personalPhone = TextEditingController();
+  late UserCubit userCubit;
+
+  TextEditingController fullname = TextEditingController();
+  TextEditingController address = TextEditingController();
+  TextEditingController posyandu = TextEditingController();
+  TextEditingController posyanduAddress = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController email = TextEditingController();
 
   @override
   void initState() {
+    userCubit = BlocProvider.of<UserCubit>(context);
+    fullname.text = userCubit.user!.namaPetugas;
+    posyandu.text = userCubit.user!.namaPosyandu;
+    address.text = userCubit.user!.alamatPetugas;
+    posyanduAddress.text = userCubit.user!.alamatPosyandu;
+    phone.text = userCubit.user!.nomorPetugas;
+    email.text = userCubit.user!.email;
+
     super.initState();
   }
 
@@ -81,7 +94,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   AddInput(
                     label: "Nama Lengkap Petugas",
                     isRequired: true,
-                    controller: storeName,
+                    controller: fullname,
                     hint: "e.g siti nurhaliza",
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
@@ -93,7 +106,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   AddInput(
                     label: "Alamat Petugas",
                     isRequired: true,
-                    controller: storeAddress,
+                    controller: address,
                     hint: "Jalan merauke",
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
@@ -105,7 +118,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   AddInput(
                     label: "Nama Posyandu",
                     isRequired: true,
-                    controller: storeAddress,
+                    controller: posyandu,
                     hint: "Posyandu Merdeka",
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
@@ -117,7 +130,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   AddInput(
                     label: "Alamat Posyandu",
                     isRequired: true,
-                    controller: storeAddress,
+                    controller: posyanduAddress,
                     hint: "Jalan merauke",
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
@@ -128,7 +141,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   ),
                   AddInput(
                     label: "Nomor Telepon",
-                    controller: personalPhone,
+                    controller: phone,
                     hint: "08127371232",
                     type: TextInputType.phone,
                     validation: (value) {
@@ -138,7 +151,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   AddInput(
                     label: "Email",
                     hint: "joko@gmail.com",
-                    controller: personalEmail,
+                    controller: email,
                     isRequired: true,
                     type: TextInputType.number,
                     validation: (value) {
