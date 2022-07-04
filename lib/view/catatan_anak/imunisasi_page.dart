@@ -1,15 +1,16 @@
 import 'package:e_posyandu/app_color.dart';
+import 'package:e_posyandu/view/catatan_anak/form_imunisasi_page.dart';
 import 'package:e_posyandu/widget/base_button.dart';
 import 'package:flutter/material.dart';
 
-class KontrolPage extends StatefulWidget {
-  KontrolPage({Key? key}) : super(key: key);
+class ImunisasiPage extends StatefulWidget {
+  ImunisasiPage({Key? key}) : super(key: key);
 
   @override
-  _KontrolPageState createState() => _KontrolPageState();
+  _ImunisasiPageState createState() => _ImunisasiPageState();
 }
 
-class _KontrolPageState extends State<KontrolPage> {
+class _ImunisasiPageState extends State<ImunisasiPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +43,7 @@ class _KontrolPageState extends State<KontrolPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Kontrol $index",
+                            "Imunisasi $index",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           ),
@@ -62,7 +63,12 @@ class _KontrolPageState extends State<KontrolPage> {
               width: double.infinity,
               padding: EdgeInsets.all(15),
               child: BaseButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FormImunisasiPage()));
+                },
                 text: "Tambah Catatan",
                 radius: 8,
                 padding: 15,

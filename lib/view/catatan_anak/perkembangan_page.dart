@@ -1,4 +1,5 @@
 import 'package:e_posyandu/app_color.dart';
+import 'package:e_posyandu/view/catatan_anak/form_perkembangan_page.dart';
 import 'package:e_posyandu/widget/base_button.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +63,12 @@ class _PerkembanganPageState extends State<PerkembanganPage> {
               width: double.infinity,
               padding: EdgeInsets.all(15),
               child: BaseButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FormPerkembanganPage()));
+                },
                 text: "Tambah Catatan",
                 radius: 8,
                 padding: 15,

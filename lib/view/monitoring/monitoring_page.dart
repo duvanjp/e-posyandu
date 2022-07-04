@@ -12,7 +12,7 @@ class MonitoringPage extends StatelessWidget {
         appBar: AppBar(automaticallyImplyLeading: false,
           bottom: const TabBar(
             tabs: [
-              Tab(text: "Imunisasi"),
+              Tab(text: "Kontrol Anak"),
               Tab(text: "Analisis Gizi Balita"),
             ],
           ),

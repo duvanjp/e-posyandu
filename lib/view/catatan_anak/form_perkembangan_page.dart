@@ -1,19 +1,18 @@
 import 'package:e_posyandu/app_color.dart';
 import 'package:e_posyandu/helper/global_helper.dart';
-import 'package:e_posyandu/view/login_page.dart';
 import 'package:e_posyandu/widget/add_input.dart';
 import 'package:e_posyandu/widget/app_alert_dialog.dart';
 import 'package:e_posyandu/widget/base_button.dart';
 import 'package:flutter/material.dart';
 
-class ProfilPage extends StatefulWidget {
-  ProfilPage({Key? key}) : super(key: key);
+class FormPerkembanganPage extends StatefulWidget {
+  FormPerkembanganPage({Key? key}) : super(key: key);
 
   @override
-  _ProfilPageState createState() => _ProfilPageState();
+  _FormPerkembanganPageState createState() => _FormPerkembanganPageState();
 }
 
-class _ProfilPageState extends State<ProfilPage> {
+class _FormPerkembanganPageState extends State<FormPerkembanganPage> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   TextEditingController storeName = TextEditingController();
@@ -23,45 +22,17 @@ class _ProfilPageState extends State<ProfilPage> {
   TextEditingController personalPhone = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.primary,
         title: Text(
-          "Profil Petugas",
+          "Masalah Perkembangan",
           style: TextStyle(
             fontSize: 16,
             color: Colors.white,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              AppAlertDialog(
-                                title: 'Keluar',
-                                description:
-                                    'Apakah anda yakin ingin keluar dari akun ini ?',
-                                positiveButtonText: 'Ya',
-                                positiveButtonOnTap: () {
-                                  Navigator.pushAndRemoveUntil(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => LoginPage()),
-                                      (Route<dynamic> route) => false);
-                                },
-                                negativeButtonText: 'Tidak',
-                                negativeButtonOnTap: () =>
-                                    Navigator.pop(context)).show(context);
-            }, 
-            icon: const Icon(Icons.logout),
-          ),
-        ],
-        automaticallyImplyLeading: false,
         elevation: 1,
       ),
       backgroundColor: Colors.white,
@@ -79,76 +50,65 @@ class _ProfilPageState extends State<ProfilPage> {
                     height: 25,
                   ),
                   AddInput(
-                    label: "Nama Lengkap Petugas",
+                    label: "Permaslahan",
                     isRequired: true,
                     controller: storeName,
-                    hint: "e.g siti nurhaliza",
+                    hint: "e.g anak demam tinggi",
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
-                        return "Nama lengkap petugas masih kosong";
+                        return "Permasalahan Masih Kosong";
                       }
                       return null;
                     },
                   ),
                   AddInput(
-                    label: "Alamat Petugas",
+                    label: "Tanggal Pemeriksaan",
                     isRequired: true,
-                    controller: storeAddress,
-                    hint: "Jalan merauke",
+                    controller: personalName,
+                    hint: "e.g 12 januari 2020",
+                    type: TextInputType.name,
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
-                        return "Alamat petugas masih kosong";
+                        return "Tanggal Pemeriksaan masih kosong";
                       }
                       return null;
                     },
-                  ),
+                  ),  
                   AddInput(
-                    label: "Nama Posyandu",
+                    label: "Tindakan",
                     isRequired: true,
-                    controller: storeAddress,
-                    hint: "Posyandu Merdeka",
+                    controller: personalName,
+                    hint: "e.g Diberi Obat Antibiotik",
+                    type: TextInputType.name,
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
-                        return "Nama posyandu masih kosong";
+                        return "Taindakan masih kosong";
                       }
                       return null;
                     },
                   ),
                   AddInput(
-                    label: "Alamat Posyandu",
+                    label: "Nama Pemeriksa",
                     isRequired: true,
-                    controller: storeAddress,
-                    hint: "Jalan merauke",
+                    controller: personalName,
+                    hint: "e.g Bidan Dewi",
+                    type: TextInputType.name,
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
-                        return "Alamat posyandu masih kosong";
+                        return "Nama Pemeriksa masih kosong";
                       }
                       return null;
                     },
-                  ),
+                  ), 
                   AddInput(
-                    label: "Nomor Telepon",
-                    controller: personalPhone,
-                    hint: "08127371232",
-                    type: TextInputType.phone,
+                    label: "Catatan Tambahan",
+                    hint: " ",
+                    controller: personalName,
+                    type: TextInputType.name,
                     validation: (value) {
                       return null;
                     },
-                  ),
-                  AddInput(
-                    label: "Email",
-                    hint: "joko@gmail.com",
-                    controller: personalEmail,
-                    isRequired: true,
-                    type: TextInputType.number,
-                    validation: (value) {
-                      if (GlobalHelper.isEmpty(value)) {
-                        return "Email masih kosong";
-                      }
-
-                      return null;
-                    },
-                  ),
+                  ),  
                 ],
               ),
             ),

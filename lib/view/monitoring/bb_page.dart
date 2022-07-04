@@ -1,4 +1,5 @@
 import 'package:e_posyandu/app_color.dart';
+import 'package:e_posyandu/view/monitoring/form_bb_page.dart';
 import 'package:e_posyandu/widget/base_button.dart';
 import 'package:flutter/material.dart';
 
@@ -42,12 +43,12 @@ class _BBPageState extends State<BBPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Imunisasi $index",
+                            "Kontrol Anak ke $index",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            "3Kg",
+                            "Sehat Dengan Catatan",
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.normal),
                           ),
@@ -62,7 +63,12 @@ class _BBPageState extends State<BBPage> {
               width: double.infinity,
               padding: EdgeInsets.all(15),
               child: BaseButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FormBBPage()));
+                },
                 text: "Tambah Catatan",
                 radius: 8,
                 padding: 15,

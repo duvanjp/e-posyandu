@@ -1,4 +1,4 @@
-import 'package:e_posyandu/view/catatan_anak/kontrol_page.dart';
+import 'package:e_posyandu/view/catatan_anak/imunisasi_page.dart';
 import 'package:e_posyandu/view/catatan_anak/perkembangan_page.dart';
 import 'package:e_posyandu/view/monitoring/bb_page.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class AnakPage extends StatelessWidget {
         appBar: AppBar(
           bottom: const TabBar(
             tabs: [
-              Tab(text: "Kontrol Rutin"),
+              Tab(text: "Imunisasi"),
               Tab(text: "Masalah Perkembangan"),
             ],
           ),
@@ -22,7 +22,7 @@ class AnakPage extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            KontrolPage(),
+            ImunisasiPage(),
             PerkembanganPage(),
           ],
         ),

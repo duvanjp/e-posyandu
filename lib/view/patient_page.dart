@@ -1,4 +1,5 @@
 import 'package:e_posyandu/app_color.dart';
+import 'package:e_posyandu/view/form_patient_page.dart';
 import 'package:e_posyandu/widget/base_button.dart';
 import 'package:flutter/material.dart';
 
@@ -143,6 +144,10 @@ class _PatientPageState extends State<PatientPage> {
             padding: const EdgeInsets.all(15),
             child: BaseButton(
               onPressed: () {
+                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FormPatientPage()));
               },
               text: "Tambah Pasien",
               radius: 8,

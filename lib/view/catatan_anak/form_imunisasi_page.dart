@@ -5,14 +5,14 @@ import 'package:e_posyandu/widget/app_alert_dialog.dart';
 import 'package:e_posyandu/widget/base_button.dart';
 import 'package:flutter/material.dart';
 
-class bayilahirPage extends StatefulWidget {
-  bayilahirPage({Key? key}) : super(key: key);
+class FormImunisasiPage extends StatefulWidget {
+  FormImunisasiPage({Key? key}) : super(key: key);
 
   @override
-  _bayilahirPageState createState() => _bayilahirPageState();
+  _FormImunisasiPageState createState() => _FormImunisasiPageState();
 }
 
-class _bayilahirPageState extends State<bayilahirPage> {
+class _FormImunisasiPageState extends State<FormImunisasiPage> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   TextEditingController storeName = TextEditingController();
@@ -27,7 +27,7 @@ class _bayilahirPageState extends State<bayilahirPage> {
       appBar: AppBar(
         backgroundColor: AppColor.primary,
         title: Text(
-          "Kesehatan Bayi Baru Lahir",
+          "Imunisasi",
           style: TextStyle(
             fontSize: 16,
             color: Colors.white,
@@ -50,98 +50,39 @@ class _bayilahirPageState extends State<bayilahirPage> {
                     height: 25,
                   ),
                   AddInput(
-                    label: "Status Anak",
+                    label: "Jenis Imunisasi",
                     isRequired: true,
                     controller: storeName,
-                    type: TextInputType.text,
-                    hint: "e.g Anak Pertama",
+                    hint: "e.g polio 1",
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
-                        return "Status Anak masih kosong";
+                        return "Jenis Imunisasi Masih Kosong";
                       }
                       return null;
                     },
                   ),
                   AddInput(
-                    label: "Nama Anak",
-                    isRequired: true,
-                    controller: storeName,
-                    type: TextInputType.text,
-                    hint: "e.g Dimas Anggar",
-                    validation: (value) {
-                      if (GlobalHelper.isEmpty(value)) {
-                        return "Nama Anak masih kosong";
-                      }
-                      return null;
-                    },
-                  ),
-                  AddInput(
-                    label: "Tanggal Lahir Anak",
+                    label: "Tanggal Imunisasi",
                     isRequired: true,
                     controller: personalName,
-                    hint: "e.g 8 12 Januari 2022",
+                    hint: "e.g 12 januari 2020",
                     type: TextInputType.name,
                     validation: (value) {
                       if (GlobalHelper.isEmpty(value)) {
-                        return "Tanggal Lahir Anak masih kosong";
+                        return "Tanggal Imunisasi masih kosong";
                       }
                       return null;
                     },
-                  ),
-                  AddInput(
-                    label: "Berat Lahir Anak",
-                    controller: storeAddress,
-                    hint: "8 Kg",
-                    validation: (value) {
-                      if (GlobalHelper.isEmpty(value)) {
-                        return "Berat Lahir Anak Masih Kosong";
-                      }
-                      return null;
-                    },
-                  ),
-                  AddInput(
-                    label: "Panjang Badan Anak",
-                    isRequired: true,
-                    controller: storeAddress,
-                    hint: "60 cm",
-                    validation: (value) {
-                      if (GlobalHelper.isEmpty(value)) {
-                        return "Panjang Badan Anak masih kosong";
-                      }
-                      return null;
-                    },
-                  ),
-                  AddInput(
-                    label: "Lingkar Kepala Anak",
-                    controller: storeAddress,
-                    hint: "20 cm",
-                    validation: (value) {
-                      if (GlobalHelper.isEmpty(value)) {
-                        return "Lingkar Kepala Anak Masih Kosong";
-                      }
-                      return null;
-                    },
-                  ),
-                  AddInput(
-                    label: "Jenis Kelamin Anak",
-                    controller: storeAddress,
-                    hint: "Laki-Laki / Perempuan",
-                    validation: (value) {
-                      if (GlobalHelper.isEmpty(value)) {
-                        return "Jenis Kelamin Anak Masih Kosong";
-                      }
-                      return null;
-                    },
-                  ),
+                  ),   
                   AddInput(
                     label: "Catatan Tambahan",
                     hint: " ",
-                    controller: personalEmail,
-                    type: TextInputType.text,
+                    controller: personalName,
+                    type: TextInputType.name,
                     validation: (value) {
                       return null;
                     },
-                  ),
+                  ),  
                 ],
               ),
             ),
