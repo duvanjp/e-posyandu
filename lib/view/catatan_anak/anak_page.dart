@@ -1,10 +1,8 @@
 import 'package:e_posyandu/view/catatan_anak/imunisasi_page.dart';
 import 'package:e_posyandu/view/catatan_anak/perkembangan_page.dart';
-import 'package:e_posyandu/view/monitoring/bb_page.dart';
 import 'package:flutter/material.dart';
 
 class AnakPage extends StatelessWidget {
-  const AnakPage({super.key});
 
   @override
   Widget build(BuildContext context) {

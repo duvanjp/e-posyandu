@@ -2,7 +2,6 @@ import 'package:e_posyandu/view/monitoring/bb_page.dart';
 import 'package:flutter/material.dart';
 
 class MonitoringPage extends StatelessWidget {
-  const MonitoringPage({super.key});
 
   @override
   Widget build(BuildContext context) {

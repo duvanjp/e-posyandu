@@ -1,0 +1,11 @@
+[debug] [2022-06-29T13:44:22.067Z] ----------------------------------------------------------------------
+[debug] [2022-06-29T13:44:22.069Z] Command:       /usr/local/bin/firebase /Users/grinaldiprasetyo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase projects:list --json
+[debug] [2022-06-29T13:44:22.069Z] CLI Version:   11.1.0
+[debug] [2022-06-29T13:44:22.069Z] Platform:      darwin
+[debug] [2022-06-29T13:44:22.069Z] Node Version:  v16.15.0
+[debug] [2022-06-29T13:44:22.071Z] Time:          Wed Jun 29 2022 20:44:22 GMT+0700 (Western Indonesia Time)
+[debug] [2022-06-29T13:44:22.072Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-06-29T13:44:22.084Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-06-29T13:44:22.085Z] > authorizing via signed-in user (grinaldifoc@gmail.com)
+[debug] [2022-06-29T13:44:22.091Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000

@@ -107,7 +107,7 @@ class CatatanPage extends StatelessWidget {
                             ),
                             Menu(
                               name: "Catatan Ibu Nifas",
-                              icon: Icons.monitor_heart_rounded,
+                              icon: Icons.list,
                               onTap: () {
                                 Navigator.push(
                                   context,

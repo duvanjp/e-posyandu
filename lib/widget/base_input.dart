@@ -89,7 +89,6 @@ class BaseInput extends StatelessWidget {
             fontWeight: FontWeight.w500,
             color: AppColor.black,
           ),
-          floatingLabelAlignment: FloatingLabelAlignment.start,
           filled: backgroundColor != null ? true : false,
           hintText: hint,
           hintStyle: TextStyle(
