@@ -94,7 +94,9 @@ class BaseButton extends StatelessWidget {
         highlightElevation: 0,
         hoverElevation: 0,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(radius!), side: border!),
+          borderRadius: BorderRadius.circular(radius!),
+          side: border!,
+        ),
         child: Container(
             padding: EdgeInsets.symmetric(vertical: padding!),
             child: _buttonMainContentChild()));

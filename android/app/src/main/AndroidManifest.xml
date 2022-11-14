@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.e_posyandu">
+    <uses-permission android:name="android.permission.NFC" />
    <application
         android:label="E-posyandu"
         android:name="${applicationName}"

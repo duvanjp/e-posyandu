@@ -17,4 +17,6 @@ class AppColor {
   static Color black = Color(0xFF050F19);
   static Color disableGrey = Color(0xFFBDBDBD);
   static Color disableDarkGrey = Color(0xFFD8D8D8);
+
+  static Color greyFont = Color(0xFF4F4F4F);
 }

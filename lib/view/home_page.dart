@@ -1,13 +1,8 @@
-import 'package:e_posyandu/app_color.dart';
-import 'package:e_posyandu/view/catatan_page.dart';
-import 'package:e_posyandu/view/monitoring/monitoring_page.dart';
-import 'package:e_posyandu/view/nfc_page.dart';
-import 'package:e_posyandu/view/patient_page.dart';
-import 'package:e_posyandu/view/profil_page.dart';
-import 'package:flutter/material.dart';
+part of 'pages.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final bool isAdmin;
+  const HomePage({Key? key, this.isAdmin = true}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -16,6 +11,36 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late PageController _pageController;
   int pageIndex = 0;
+  List<Widget> AdminRole = [
+    PatientPage(),
+    // CatatanPage(),
+    // MonitoringPage(),
+    NFCPage(),
+    ProfilPage(),
+  ];
+
+  List<BottomNavigationBarItem> itemAdminRole = [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.local_hospital),
+      label: "Pasien",
+    ),
+    // BottomNavigationBarItem(
+    //   icon: Icon(Icons.receipt_long_rounded),
+    //   label: "Catatan",
+    // ),
+    // BottomNavigationBarItem(
+    //   icon: Icon(Icons.library_books_rounded),
+    //   label: "Monitoring",
+    // ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.verified_user_rounded),
+      label: "NFC",
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.account_box),
+      label: "Profil",
+    ),
+  ];
 
   @override
   void initState() {
@@ -36,13 +61,7 @@ class _HomePageState extends State<HomePage> {
           controller: _pageController,
           scrollDirection: Axis.horizontal,
           physics: const NeverScrollableScrollPhysics(),
-          children: [
-            PatientPage(),
-            CatatanPage(),
-            MonitoringPage(),
-            NFCPage(),
-            ProfilPage(),
-          ],
+          children: AdminRole,
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -63,28 +82,7 @@ class _HomePageState extends State<HomePage> {
             _pageController.jumpToPage(key);
           });
         },
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_hospital),
-            label: "Pasien",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.receipt_long_rounded),
-            label: "Catatan",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_books_rounded),
-            label: "Monitoring",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.verified_user_rounded),
-            label: "NFC",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_box),
-            label: "Profil",
-          ),
-        ],
+        items: itemAdminRole,
       ),
     );
   }

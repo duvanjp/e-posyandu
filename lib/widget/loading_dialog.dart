@@ -61,3 +61,22 @@ class LoadingDialog {
         });
   }
 }
+
+void progressDialogFull(BuildContext context) {
+  showDialog(
+    barrierColor: Colors.black.withOpacity(0.2),
+    barrierDismissible: false,
+    context: context,
+    builder: (BuildContext context) {
+      return Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Center(child: CircularProgressIndicator(color: Colors.white)),
+      );
+    },
+  );
+}
+
+void dismissProgressDialogFull(BuildContext context) {
+  Navigator.pop(context);
+}

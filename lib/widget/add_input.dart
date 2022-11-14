@@ -1,7 +1,7 @@
 import 'package:e_posyandu/app_color.dart';
 import 'package:flutter/material.dart';
 
-class AddInput extends StatelessWidget {
+class AddInput extends StatefulWidget {
   final String? label, hint;
   final TextEditingController? controller;
   final bool? isRequired;
@@ -9,6 +9,8 @@ class AddInput extends StatelessWidget {
   final FormFieldValidator<String>? validation;
   final bool passwordField;
   final ValueChanged<String>? onChanged;
+  final String suffixText;
+  final bool enabled;
 
   const AddInput({
     Key? key,
@@ -20,8 +22,16 @@ class AddInput extends StatelessWidget {
     this.type = TextInputType.name,
     this.passwordField = false,
     this.onChanged,
+    this.suffixText = "",
+    this.enabled = true,
   }) : super(key: key);
 
+  @override
+  State<AddInput> createState() => _AddInputState();
+}
+
+class _AddInputState extends State<AddInput> {
+  bool isShowed = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +44,7 @@ class AddInput extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  label!,
+                  widget.label!,
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -45,7 +55,7 @@ class AddInput extends StatelessWidget {
                 SizedBox(
                   width: 3,
                 ),
-                isRequired!
+                widget.isRequired!
                     ? Text(
                         "*",
                         style: TextStyle(
@@ -59,30 +69,44 @@ class AddInput extends StatelessWidget {
             ),
           ),
           TextFormField(
-            validator: validation!,
-            controller: controller,
+            validator: widget.validation!,
+            controller: widget.controller,
+            enabled: widget.enabled,
             style: TextStyle(
               color: AppColor.black,
               fontSize: 14,
             ),
-            keyboardType: type,
-            obscureText: passwordField,
-            onChanged: onChanged,
+            keyboardType: widget.type,
+            obscureText: widget.passwordField ? isShowed : false,
+            onChanged: widget.onChanged,
             decoration: InputDecoration(
-              hintText: hint,
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              hintStyle: TextStyle(
-                  fontSize: 14,
-                  color: AppColor.boxGrey,
-                  fontWeight: FontWeight.w400),
-              border: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.boxGrey),
-              ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppColor.primary),
-              ),
-              isDense: true,
-            ),
+                hintText: widget.hint,
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                hintStyle: TextStyle(
+                    fontSize: 14,
+                    color: AppColor.boxGrey,
+                    fontWeight: FontWeight.w400),
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: AppColor.boxGrey),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: AppColor.primary),
+                ),
+                isDense: true,
+                suffix: widget.passwordField
+                    ? InkWell(
+                        onTap: () {
+                          setState(() {
+                            isShowed = !isShowed;
+                          });
+                        },
+                        child: Icon(
+                          isShowed ? Icons.visibility : Icons.visibility_off,
+                          color: AppColor.primary,
+                        ),
+                      )
+                    : null,
+                suffixText: widget.suffixText == "" ? null : widget.suffixText),
           ),
         ],
       ),

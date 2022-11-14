@@ -11,4 +11,11 @@ class UserInitial extends UserState {}
 
 class UserLoggedIn extends UserState {}
 
-class UserFailedLogin extends UserState {}
+class UserFailedLogin extends UserState {
+  final error;
+  UserFailedLogin({required this.error});
+}
+
+class UserLoading extends UserState {}
+
+class UserNotLoggedIn extends UserState {}

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:e_posyandu/view/pages.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class GlobalHelper {
@@ -73,4 +75,12 @@ class GlobalHelper {
 
     return formattedDate;
   }
+
+  void toWelcomePage(BuildContext context) => Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) => WelcomePage()),
+      (Route<dynamic> route) => false);
+
+  String getCollectionPath(String? referenceId, String path) =>
+      "peserta/$referenceId/$path";
 }
